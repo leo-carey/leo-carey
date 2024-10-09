@@ -8,5 +8,5 @@ html {
 
 html,
 body {
-  @apply relative tracking-tight antialiased grayscale;
+  @apply relative tracking-tight antialiased grayscale bg-primary-100 font-medium;
 }
