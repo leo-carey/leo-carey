@@ -21,7 +21,7 @@
           experiências digitais fáceis de usar.
         </p>
 
-        <a href="#" class="btn-cta"> Transforme Seu Projeto em Realidade </a>
+        <a href="#" class="btn-cta">Seu Projeto em Realidade</a>
       </div>
     </div>
   </div>
@@ -33,6 +33,6 @@
 }
 
 .btn-cta {
-  @apply mt-5 block w-fit rounded-sm bg-secondary-500 p-6 text-primary-100 transition-colors hover:bg-secondary-300;
+  @apply mt-5 block w-fit rounded-sm bg-secondary-500 px-5 py-4 text-primary-100 transition-colors hover:bg-secondary-300;
 }
 </style>
