@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import BannerApp from './components/BannerApp.vue'
-import HeaderApp from './components/HeaderApp.vue'
+import Banner from './components/Banner.vue'
+import Header from './components/Header.vue'
 </script>
 
 <template>
   <main>
-    <HeaderApp />
-    <BannerApp />
+    <Header />
+    <Banner />
   </main>
 </template>

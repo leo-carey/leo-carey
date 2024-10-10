@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container m-auto mb-8 flex justify-between px-32 py-6">
+  <div class="container m-auto mb-8 flex justify-between py-6 lg:px-0 xl:px-32">
     <h1 class="relative font-oswald text-3xl font-semibold uppercase">
       Leo<small class="absolute top-0 text-xs">®</small>
     </h1>
@@ -13,11 +13,11 @@
         </li>
 
         <li class="uppercase">
-          <a href="#">portfolio</a>
+          <a href="#">sobre</a>
         </li>
 
         <li class="uppercase">
-          <a href="#">sobre</a>
+          <a href="#">portfolio</a>
         </li>
 
         <li class="uppercase">

@@ -57,6 +57,7 @@ export default [
       ...prettierConfig.rules,
       'prettier/prettier': 'error',
       'vue/require-valid-default-prop': 'off',
+      'vue/multi-word-component-names': 'off',
       'vue/no-deprecated-slot-attribute': 'off',
       'vue/no-multiple-template-root': 'error',
       'vue/no-unused-vars': 'error',
