@@ -1,9 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container m-auto mb-8 flex justify-between py-6 lg:px-0 xl:px-32">
+  <div class="container m-auto mb-4 flex justify-between py-6 lg:px-0 xl:px-32">
     <h1 class="relative font-oswald text-3xl font-semibold uppercase">
-      Leo<small class="absolute top-0 text-xs">®</small>
+      Leo<small class="absolute top-0 text-xs lowercase">carey</small>
     </h1>
 
     <nav>

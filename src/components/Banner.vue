@@ -1,4 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const techs = [
+  {
+    name: 'vue',
+    img: ''
+  }
+]
+</script>
 
 <template>
   <div class="relative h-[700px]">
@@ -6,12 +13,18 @@
 
     <div class="container m-auto flex justify-between lg:px-0 xl:px-32">
       <div class="lg:w-1/4 xl:w-1/4">
-        <div>
-          <div class="w-10 rounded-full bg-secondary-100"></div>
-        </div>
+        <span class="block uppercase text-secondary-100">12+ anos de experiência</span>
+        <span>Com tecnologias atuais de mercado.</span>
 
-        <div>100+ reviews<span>(4.96 of 5)</span></div>
-        <div>Avaliações cinco estrelas de meus estimados clientes.</div>
+        <div class="mt-4 flex items-center space-x-2">
+          <div
+            v-for="(tech, techIndex) in techs"
+            :key="techIndex"
+            class="flex h-10 w-10 items-center justify-center rounded-md bg-secondary-100/50 text-center"
+          >
+            {{ tech.name }}
+          </div>
+        </div>
       </div>
 
       <div class="w-1/4">
@@ -30,7 +43,7 @@
 
 <style scoped>
 .title-banner {
-  @apply text-center font-oswald text-[240px] font-semibold uppercase tracking-wide text-secondary-400;
+  @apply text-center font-oswald text-[240px] font-semibold uppercase leading-tight tracking-wide text-secondary-400;
 }
 
 .image-avatar {

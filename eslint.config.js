@@ -1,6 +1,7 @@
 import globals from 'globals'
 import pluginJs from '@eslint/js'
 import pluginTs from 'typescript-eslint'
+import pluginTsParser from '@typescript-eslint/parser'
 import pluginVue from 'eslint-plugin-vue'
 import prettier from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
@@ -8,6 +9,8 @@ import prettierConfig from 'eslint-config-prettier'
 export default [
   pluginJs.configs.recommended,
   ...pluginTs.configs.recommended,
+  ...pluginTs.configs.strict,
+  ...pluginTs.configs.stylistic,
   ...pluginVue.configs['flat/essential'],
 
   {
@@ -18,19 +21,23 @@ export default [
     ],
 
     files: [
-      'src/**/*.{ts,vue}',
-      'src/**/**/*.{ts,vue}',
-      'src/**/**/**/*.{ts,vue}'
+      '**/*.ts',
     ],
 
     languageOptions: {
+      parser: pluginTsParser,
       globals: globals.browser,
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parserOptions: {
+        parser: "vue-eslint-parser",
+        extraFileExtensions: [".vue"],
+      },
     },
 
     plugins: {
       prettier,
+      '@typescript-eslint/parser': pluginTsParser
     },
 
     rules: {
@@ -38,7 +45,7 @@ export default [
       'prettier/prettier': 'error',
       'quotes': ['warn', 'single'],
       'no-empty': ['warn', { allowEmptyCatch: true }],
-      'no-unused-vars': ['warn', { args: 'none' }],
+      '@typescript-eslint/no-unused-vars': ['warn', { args: 'none' }],
       'curly': ['error', 'all'],
       'no-console': ['error', { allow: ['warn', 'error'] }],
       'id-length': ['error', { min: 2, exceptions: ['_'] }]
@@ -46,7 +53,16 @@ export default [
   },
 
   {
-    files: ['src/**/*.vue', 'src/**/**/*.vue', 'src/**/**/**/*.vue'],
+    files: ['**/*.vue'],
+
+    languageOptions: {
+      globals: globals.browser,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      parserOptions: {
+        parser: pluginTsParser,
+      }
+    },
 
     plugins: {
       vue: pluginVue,
