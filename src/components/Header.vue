@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { AkInstagramFill, AkLinkedInFill, FlDividerTall } from '@kalimahapps/vue-icons'
+</script>
 
 <template>
   <div class="container m-auto mb-4 flex justify-between py-6 lg:px-0 xl:px-32">
@@ -7,7 +9,7 @@
     </h1>
 
     <nav>
-      <ul class="flex space-x-8">
+      <ul class="flex items-center space-x-8">
         <li class="uppercase">
           <a href="#">home</a>
         </li>
@@ -22,6 +24,22 @@
 
         <li class="uppercase">
           <a href="#">contato</a>
+        </li>
+
+        <li class="mx-0 text-3xl">
+          <FlDividerTall />
+        </li>
+
+        <li>
+          <a href="#" class="text-lg">
+            <AkLinkedInFill />
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="text-lg">
+            <AkInstagramFill />
+          </a>
         </li>
       </ul>
     </nav>

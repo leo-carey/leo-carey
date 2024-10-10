@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { AkWhatsappFill } from '@kalimahapps/vue-icons'
+</script>
 
 <template>
   <div class="container m-auto pt-40">
@@ -10,7 +12,9 @@
       >
         Bora conversar
 
-        <a href="#" class="cta-footer"> > </a>
+        <a href="#" class="cta-footer">
+          <AkWhatsappFill />
+        </a>
       </h2>
     </div>
 
@@ -27,6 +31,6 @@
 
 <style scoped>
 .cta-footer {
-  @apply ml-8 flex h-[120px] w-[120px] items-center justify-center bg-secondary-300 text-[120px] leading-[0] text-primary-100 transition-colors hover:bg-secondary-100;
+  @apply ml-8 mt-3 flex h-[120px] w-[120px] items-center justify-center bg-secondary-300 text-[70px] text-primary-100 transition-colors hover:bg-secondary-100;
 }
 </style>
