@@ -31,6 +31,6 @@ import { AkWhatsappFill } from '@kalimahapps/vue-icons'
 
 <style scoped>
 .cta-footer {
-  @apply ml-8 mt-3 flex h-[120px] w-[120px] items-center justify-center bg-secondary-300 text-[70px] text-primary-100 transition-colors hover:bg-secondary-100;
+  @apply ml-8 mt-3 flex h-[120px] w-[120px] items-center justify-center bg-secondary-100 text-[70px] text-primary-100 transition-colors hover:bg-secondary-300;
 }
 </style>

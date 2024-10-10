@@ -14,7 +14,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container m-auto py-12 text-center lg:px-0 xl:px-32">
+  <div class="container m-auto text-center lg:px-0 xl:px-32">
     <h3 class="mb-4 text-4xl">Algumas das marcas que já trabalharam comigo</h3>
 
     <div class="brands-carousel" :style="`--quantity: ${brands.length}`">

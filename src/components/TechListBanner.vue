@@ -5,13 +5,13 @@ import techList from '../data/techs.json'
 import ImagePreview from '../interfaces/ImagePreview'
 import { useImagePreview } from '../composables/useImagePreview'
 import { useRandomItems } from '../composables/useRandomItems'
+import { useExperienceTime } from '../composables/useExperienceTime'
 
 const techs = ref<ImagePreview[]>([])
 const resolvedImages = ref<Record<string, string>>({})
 const isLoading = ref(true)
 
-// ** 2013 was my first year as developer <3
-const currentExperienceTime = new Date().getFullYear() - 2013
+const currentExperienceTime = useExperienceTime()
 
 onMounted(async () => {
   loadTechs()

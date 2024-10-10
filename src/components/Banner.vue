@@ -13,20 +13,20 @@ import TechListBanner from './TechListBanner.vue'
       </div>
 
       <div class="mt-16 w-1/4">
-        <p class="block">
-          Oi, eu sou o Leo, um programador apaixonado e dedicado a criar experiências digitais
-          fáceis de usar.
+        <p class="block w-[90%]">
+          Oi, eu sou o Leo, um programador FULL-STACK apaixonado e dedicado a criar experiências
+          digitais fáceis de usar.
         </p>
 
         <a href="#" class="btn-cta">
-          Seu Projeto em Realidade
-
           <AkWhatsappFill />
+
+          <span class="ml-2">Seu Projeto em Realidade</span>
         </a>
       </div>
     </div>
 
-    <img src="@/assets/avatar1.png" alt="Leo Carey Avatar" class="image-avatar" />
+    <img src="@/assets/me/avatar1.png" alt="Leo Carey Avatar" class="image-avatar" />
   </div>
 </template>
 
@@ -44,7 +44,7 @@ import TechListBanner from './TechListBanner.vue'
 }
 
 .btn-cta {
-  @apply mt-5 rounded-sm bg-secondary-500 px-5 py-4 text-primary-100 transition-colors hover:bg-secondary-100;
-  @apply flex items-center justify-between;
+  @apply mt-5 rounded-sm bg-secondary-100 px-5 py-4 text-primary-100 transition-colors hover:bg-secondary-300;
+  @apply flex items-center justify-center;
 }
 </style>
