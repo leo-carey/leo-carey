@@ -20,6 +20,10 @@
     "img": "nodejs.png"
   },
   {
+    "name": "TailwindCSS",
+    "img": "tailwind.png"
+  },
+  {
     "name": "Lit HTML",
     "img": "lit-html.png"
   },
@@ -30,5 +34,37 @@
   {
     "name": "MongoDB",
     "img": "mongodb.png"
+  },
+  {
+    "name": "Wordpress",
+    "img": "wordpress.png"
+  },
+  {
+    "name": "PHP",
+    "img": "php.png"
+  },
+  {
+    "name": "Angular",
+    "img": "angular.png"
+  },
+  {
+    "name": "Docker",
+    "img": "docker.png"
+  },
+  {
+    "name": "Java",
+    "img": "java.png"
+  },
+  {
+    "name": ".Net",
+    "img": "dot-net.png"
+  },
+  {
+    "name": "Python",
+    "img": "python.png"
+  },
+  {
+    "name": "C#",
+    "img": "c-sharp.png"
   }
 ]

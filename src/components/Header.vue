@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { AkInstagramFill, AkLinkedInFill, FlDividerTall } from '@kalimahapps/vue-icons'
+import {
+  AkGithubFill,
+  AkInstagramFill,
+  AkLinkedInFill,
+  FlDividerTall
+} from '@kalimahapps/vue-icons'
 </script>
 
 <template>
@@ -39,6 +44,12 @@ import { AkInstagramFill, AkLinkedInFill, FlDividerTall } from '@kalimahapps/vue
         <li>
           <a href="#" class="text-lg">
             <AkInstagramFill />
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="text-lg">
+            <AkGithubFill />
           </a>
         </li>
       </ul>
