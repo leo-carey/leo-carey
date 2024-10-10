@@ -22,6 +22,14 @@ export const useImagePreview = async (
       >
       break
     }
+
+    case 'services': {
+      images = import.meta.glob('@/assets/services/*.png') as Record<
+        string,
+        () => Promise<{ default: string }>
+      >
+      break
+    }
   }
 
   for (const path in images) {
