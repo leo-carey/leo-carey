@@ -19,5 +19,5 @@ h4 {
 }
 
 .tooltip {
-  @apply absolute bg-secondary-200 text-sm text-primary-100 px-4 py-2 rounded-md z-[9999] text-nowrap invisible;
+  @apply invisible absolute z-[9999] text-nowrap rounded-md bg-secondary-200 px-4 py-2 text-sm text-primary-100;
 }
