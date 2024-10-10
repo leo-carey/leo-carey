@@ -1,24 +1,15 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 
-import Brand from '../interfaces/brand'
+import ImagePreview from '../interfaces/ImagePreview'
 import brandList from '../data/brands.json'
+import { useImagePreview } from '../composables/useImagePreview'
 
-const brands: Brand[] = brandList
-
-const images = import.meta.glob('@/assets/brands/*.png') as Record<
-  string,
-  () => Promise<{ default: string }>
->
-
+const brands: ImagePreview[] = brandList
 const resolvedImages = ref<Record<string, string>>({})
 
 onMounted(async () => {
-  for (const path in images) {
-    const moduleImage = await images[path]()
-
-    resolvedImages.value[path.split('/').pop() as string] = moduleImage.default
-  }
+  useImagePreview('brands', resolvedImages)
 })
 </script>
 
@@ -33,7 +24,11 @@ onMounted(async () => {
           :key="brandIndex"
           :style="`--position: ${brandIndex + 1}`"
         >
-          <img v-if="resolvedImages[brand.img]" :src="resolvedImages[brand.img]" :alt="brand.img" />
+          <img
+            v-if="resolvedImages[brand.img]"
+            :src="resolvedImages[brand.img]"
+            :alt="brand.name"
+          />
         </li>
       </ul>
     </div>

@@ -8,7 +8,7 @@ html {
 
 html,
 body {
-  @apply relative bg-primary-100 font-medium tracking-tight antialiased grayscale;
+  @apply relative bg-primary-100 font-medium tracking-tight antialiased;
 }
 
 h1,

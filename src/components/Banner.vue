@@ -1,33 +1,43 @@
 <script setup lang="ts">
-const techs = [
-  {
-    name: 'vue',
-    img: ''
-  }
-]
+import { onMounted, ref } from 'vue'
+
+import techList from '../data/techs.json'
+import ImagePreview from '../interfaces/ImagePreview'
+import { useImagePreview } from '../composables/useImagePreview'
+import { useRandomItems } from '../composables/useRandomItems'
+
+const techs = ref<ImagePreview[]>([])
+const resolvedImages = ref<Record<string, string>>({})
+
+onMounted(async () => {
+  loadTechs()
+})
+
+const loadTechs = () => {
+  techs.value = useRandomItems<ImagePreview>(techList, 4)
+  useImagePreview('techs', resolvedImages)
+}
 </script>
 
 <template>
   <div class="relative h-[700px]">
     <h1 class="title-banner w-full">Leo Carey</h1>
 
-    <div class="container m-auto flex justify-between lg:px-0 xl:px-32">
-      <div class="lg:w-1/4 xl:w-1/4">
+    <div class="content-banner">
+      <div class="mt-8 lg:w-1/4 xl:w-1/4">
         <span class="block uppercase text-secondary-100">12+ anos de experiência</span>
         <span>Com tecnologias atuais de mercado.</span>
 
-        <div class="mt-4 flex items-center space-x-2">
-          <div
-            v-for="(tech, techIndex) in techs"
-            :key="techIndex"
-            class="flex h-10 w-10 items-center justify-center rounded-md bg-secondary-100/50 text-center"
-          >
-            {{ tech.name }}
-          </div>
-        </div>
+        <ul class="m-0 mt-4 flex flex-wrap items-center space-x-2 p-0">
+          <li v-for="(tech, techIndex) in techs" :key="techIndex" class="tech-item">
+            <img v-if="resolvedImages[tech.img]" :src="resolvedImages[tech.img]" :alt="tech.name" />
+          </li>
+
+          <li class="tech-item item-plus" @click="loadTechs">+</li>
+        </ul>
       </div>
 
-      <div class="w-1/4">
+      <div class="mt-8 w-1/4">
         <p class="block">
           Oi, eu sou o Leo, um programador apaixonado e dedicado a criar experiências digitais
           fáceis de usar.
@@ -43,7 +53,23 @@ const techs = [
 
 <style scoped>
 .title-banner {
-  @apply text-center font-oswald text-[240px] font-semibold uppercase leading-tight tracking-wide text-secondary-400;
+  @apply text-center font-oswald text-[240px] font-semibold uppercase leading-tight tracking-wide text-secondary-300;
+}
+
+.content-banner {
+  @apply container m-auto flex h-[50%] items-start justify-between lg:px-0 xl:px-32;
+}
+
+.tech-item {
+  @apply flex h-14 w-14 items-center justify-center rounded-md bg-secondary-300/20 p-3 text-center text-xl font-semibold text-primary-100;
+
+  &.item-plus {
+    @apply cursor-pointer transition-colors hover:bg-secondary-300/80;
+  }
+
+  img {
+    @apply w-full;
+  }
 }
 
 .image-avatar {
