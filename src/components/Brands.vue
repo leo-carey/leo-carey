@@ -40,7 +40,7 @@ onMounted(async () => {
   --width: 140px;
   --paddingX: 28px;
   --height: 160px;
-  --timeMove: 18s;
+  --timeMove: 10s;
 
   @apply container m-auto overflow-hidden;
   height: var(--height);

@@ -2,40 +2,43 @@
 import { AkWhatsappFill } from '@kalimahapps/vue-icons'
 import TechListBanner from './TechListBanner.vue'
 import { useCtaLink } from '../composables/useCtaLink'
+import ButtonCta from './shared/ButtonCta.vue'
 
 const linkCTA = useCtaLink()
 </script>
 
 <template>
-  <div class="relative h-[700px]">
-    <h1 class="title-banner w-full">Leo Carey</h1>
+  <section class="relative h-[700px]">
+    <h2 class="title-banner w-full">Leo Carey</h2>
 
     <div class="content-banner">
-      <div class="mt-20 lg:w-1/4 xl:w-1/4">
+      <aside class="mt-20 lg:w-1/4 xl:w-1/4">
         <TechListBanner />
-      </div>
+      </aside>
 
-      <div class="mt-16 w-1/4">
+      <aside class="mt-16 w-1/4">
         <p class="block w-[90%]">
           Oi, eu sou o Leo, um programador FULL-STACK apaixonado e dedicado a criar experiências
           digitais fáceis de usar.
         </p>
 
-        <a :href="linkCTA" target="_blank" class="btn-cta">
+        <ButtonCta :link-cta="linkCTA">
           <AkWhatsappFill />
 
-          <span class="ml-2">Seu Projeto em Realidade</span>
-        </a>
-      </div>
+          <span>Seu Projeto em Realidade</span>
+        </ButtonCta>
+      </aside>
     </div>
 
-    <img src="@/assets/me/avatar1.png" alt="Leo Carey Avatar" class="image-avatar" />
-  </div>
+    <figure class="image-avatar">
+      <img src="@/assets/me/avatar1.png" alt="Leo Carey Avatar" />
+    </figure>
+  </section>
 </template>
 
 <style scoped>
 .title-banner {
-  @apply text-center font-oswald text-[240px] font-semibold uppercase leading-tight tracking-wide text-secondary-300;
+  @apply text-center text-[240px] font-semibold leading-tight tracking-wide text-secondary-300;
 }
 
 .content-banner {
@@ -47,7 +50,7 @@ const linkCTA = useCtaLink()
 }
 
 .btn-cta {
-  @apply mt-5 rounded-sm bg-secondary-100 px-5 py-4 text-primary-100 transition-colors hover:bg-secondary-300;
-  @apply flex items-center justify-center;
+  @apply mt-5 w-fit rounded-sm bg-secondary-100 px-8 py-4 text-primary-100 transition-colors hover:bg-secondary-300;
+  @apply flex flex-row items-center gap-x-2;
 }
 </style>

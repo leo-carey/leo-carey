@@ -6,7 +6,7 @@ const currentExperienceTime = useExperienceTime()
 </script>
 
 <template>
-  <div id="about" class="min-h-[400px] bg-secondary-500 py-28 text-primary-100">
+  <section id="about" class="bg-secondary-500 py-28 text-primary-100">
     <Brands />
 
     <div class="mx-auto mt-20 flex items-start justify-center">
@@ -15,7 +15,7 @@ const currentExperienceTime = useExperienceTime()
       </div>
 
       <div class="about-me">
-        <h2 class="mb-4 font-sans text-2xl font-semibold normal-case">Sobre mim</h2>
+        <h3 class="mb-4 font-sans text-2xl font-semibold normal-case">Sobre mim</h3>
 
         <p>
           Sou desenvolvedor com mais de {{ currentExperienceTime }} anos de experiência, apaixonado
@@ -39,7 +39,7 @@ const currentExperienceTime = useExperienceTime()
         </p>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>

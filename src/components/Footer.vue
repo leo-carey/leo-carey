@@ -3,7 +3,7 @@ import { AkWhatsappFill } from '@kalimahapps/vue-icons'
 </script>
 
 <template>
-  <div class="container m-auto pt-40">
+  <footer class="container m-auto pt-40">
     <div class="text-center">
       <h3 class="text-2xl">Tem algum projeto em mente?</h3>
 
@@ -19,14 +19,23 @@ import { AkWhatsappFill } from '@kalimahapps/vue-icons'
     </div>
 
     <div class="flex w-full items-center justify-between py-6 text-xs">
-      <span>
-        Desenvolvido por
-        <a href="#" target="_blank" class="font-semibold underline hover:no-underline">Leo Carey</a>
-      </span>
+      <div>
+        <span class="block">
+          Desenvolvido por
+          <a href="#" target="_blank" class="font-semibold underline hover:no-underline"
+            >Leo Carey</a
+          >
+        </span>
+
+        <span class="block">
+          Ilustrações retiradas do site
+          <a href="https://storyset.com">Storyset</a>
+        </span>
+      </div>
 
       <span>© Copyright 2024</span>
     </div>
-  </div>
+  </footer>
 </template>
 
 <style scoped>
