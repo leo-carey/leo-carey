@@ -34,7 +34,7 @@ const loadTechs = async () => {
     </span>
     <span>Com tecnologias atuais de mercado:</span>
 
-    <ul v-if="!isLoading" class="m-0 mt-4 flex flex-wrap items-center space-x-2 p-0">
+    <ul v-if="!isLoading" class="m-0 mt-4 flex flex-row flex-wrap items-center gap-x-2 p-0">
       <li
         v-for="(tech, techIndex) in techs"
         :key="techIndex"

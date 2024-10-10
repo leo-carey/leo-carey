@@ -14,7 +14,7 @@ import {
     </h1>
 
     <nav>
-      <ul class="flex items-center space-x-8">
+      <ul class="flex flex-row items-center gap-x-8">
         <li class="uppercase">
           <a href="#">home</a>
         </li>

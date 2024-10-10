@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { AkWhatsappFill } from '@kalimahapps/vue-icons'
 import TechListBanner from './TechListBanner.vue'
+import { useCtaLink } from '../composables/useCtaLink'
+
+const linkCTA = useCtaLink()
 </script>
 
 <template>
@@ -18,7 +21,7 @@ import TechListBanner from './TechListBanner.vue'
           digitais fáceis de usar.
         </p>
 
-        <a href="#" class="btn-cta">
+        <a :href="linkCTA" target="_blank" class="btn-cta">
           <AkWhatsappFill />
 
           <span class="ml-2">Seu Projeto em Realidade</span>

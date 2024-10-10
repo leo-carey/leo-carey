@@ -12,7 +12,7 @@ import { AkWhatsappFill } from '@kalimahapps/vue-icons'
       >
         Bora conversar
 
-        <a href="#" class="cta-footer">
+        <a href="#" target="_blank" class="cta-footer">
           <AkWhatsappFill />
         </a>
       </h2>
@@ -21,7 +21,7 @@ import { AkWhatsappFill } from '@kalimahapps/vue-icons'
     <div class="flex w-full items-center justify-between py-6 text-xs">
       <span>
         Desenvolvido por
-        <a href="#" class="font-semibold underline hover:no-underline">Leo Carey</a>
+        <a href="#" target="_blank" class="font-semibold underline hover:no-underline">Leo Carey</a>
       </span>
 
       <span>© Copyright 2024</span>

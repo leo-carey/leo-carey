@@ -30,8 +30,12 @@ const currentExperienceTime = useExperienceTime()
         <p>
           Ao longo da minha jornada na programação, já trabalhei em diversos projetos, sempre
           buscando unir minha paixão por código com a criação de soluções que realmente fazem a
-          diferença na vida dos meus clientes. Gosto de desafios e de usar a tecnologia para
-          facilitar o dia a dia das pessoas e empresas.
+          diferença na vida dos meus clientes.
+        </p>
+
+        <p>
+          Gosto de desafios e de usar a tecnologia para facilitar o dia a dia das pessoas e
+          empresas.
         </p>
       </div>
     </div>
