@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { AkWhatsappFill } from '@kalimahapps/vue-icons'
+import { useCtaLink } from '../composables/useCtaLink'
+
+const linkCTA = useCtaLink()
 </script>
 
 <template>
@@ -12,7 +15,7 @@ import { AkWhatsappFill } from '@kalimahapps/vue-icons'
       >
         Bora conversar
 
-        <a href="#" target="_blank" class="cta-footer">
+        <a :href="linkCTA" target="_blank" class="cta-footer">
           <AkWhatsappFill />
         </a>
       </h2>
@@ -22,14 +25,20 @@ import { AkWhatsappFill } from '@kalimahapps/vue-icons'
       <div>
         <span class="block">
           Desenvolvido por
-          <a href="#" target="_blank" class="font-semibold underline hover:no-underline"
+          <a :href="linkCTA" target="_blank" class="font-semibold underline hover:no-underline"
             >Leo Carey</a
           >
         </span>
 
         <span class="block">
           Ilustrações retiradas do site
-          <a href="https://storyset.com">Storyset</a>
+          <a
+            href="https://storyset.com"
+            class="font-semibold underline hover:no-underline"
+            target="_blank"
+          >
+            Storyset
+          </a>
         </span>
       </div>
 

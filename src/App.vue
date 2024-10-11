@@ -3,6 +3,7 @@ import About from './components/About.vue'
 import Banner from './components/Banner.vue'
 import CTAFloat from './components/CTAFloat.vue'
 import Footer from './components/Footer.vue'
+import GoTop from './components/GoTop.vue'
 import Header from './components/Header.vue'
 import Services from './components/Services.vue'
 import Testimonies from './components/Testimonies.vue'
@@ -18,5 +19,6 @@ import Testimonies from './components/Testimonies.vue'
     <Footer />
 
     <CTAFloat />
+    <GoTop />
   </main>
 </template>
