@@ -19,8 +19,6 @@ export enum Emotes {
   ThumbsUp = 'ThumbsUp'
 }
 
-// const api: Record<string, string | (() => void)> = { state: 'Idle' }
-
 let actions: Record<string, THREE.AnimationAction>
 let activeAction: THREE.AnimationAction
 let previousAction: THREE.AnimationAction
@@ -29,9 +27,9 @@ export default class MegaBotActions {
   model: THREE.Group<THREE.Object3DEventMap>
   modelAnimations: THREE.AnimationClip[]
 
-  static DEFAULT_ANIMATION = States.Idle
-  static DURATION_STATE = 0.2
-  static DURATION_EMOTE = 0.5
+  static DEFAULT_ANIMATION = States.Run
+  static DURATION_STATE = 0.5
+  static DURATION_EMOTE = 0.2
 
   constructor(model: THREE.Group<THREE.Object3DEventMap>, modelAnimations: THREE.AnimationClip[]) {
     this.model = model
@@ -52,12 +50,15 @@ export default class MegaBotActions {
       }
 
       activeAction = actions[MegaBotActions.DEFAULT_ANIMATION]
+      this.checkActionHasLoop(activeAction, MegaBotActions.DEFAULT_ANIMATION)
+
       activeAction.play()
+      this.configureExpressions()
     }
   }
 
   public runState(state: string) {
-    if (state in States) {
+    if (!(state in States)) {
       throw new Error(`Não existe a action "${state}" nos estados do modelo.`)
     }
 
@@ -65,11 +66,24 @@ export default class MegaBotActions {
   }
 
   public runEmote(emote: string) {
-    if (emote in Emotes) {
+    if (!(emote in Emotes)) {
       throw new Error(`Não existe a action "${emote}" nos emotes do modelo.`)
     }
 
     this.loadNewMovement(emote, MegaBotActions.DURATION_EMOTE)
+  }
+
+  private checkActionHasLoop(action: THREE.AnimationAction, animation: string) {
+    if (animation === States.Death || animation in Emotes) {
+      action.clampWhenFinished = true
+      action.loop = THREE.LoopOnce
+    }
+
+    if (animation in Emotes) {
+      setTimeout(() => {
+        this.runState(States.Idle)
+      }, 500)
+    }
   }
 
   private loadNewMovement(name: string, duration: number) {
@@ -81,5 +95,14 @@ export default class MegaBotActions {
     }
 
     activeAction.reset().setEffectiveTimeScale(1).setEffectiveWeight(1).fadeIn(duration).play()
+  }
+
+  private configureExpressions() {
+    const face = this.model.getObjectByName('Head_4') as THREE.Mesh
+
+    if (face.morphTargetInfluences) {
+      face.morphTargetInfluences[0] = 0.5
+      face.morphTargetInfluences[1] = 1
+    }
   }
 }

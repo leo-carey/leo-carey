@@ -2,15 +2,15 @@
 import { onMounted, ref } from 'vue'
 
 import { useCtaLink } from '../composables/useCtaLink'
-import ServiceSection from './shared/ServiceSection.vue'
+// import ServiceSection from './shared/ServiceSection.vue'
 import MegaBot from './mega-bot/MegaBot.vue'
 
 const isLoading = ref(true)
 
-const linkBot = useCtaLink('Bot de automação')
-const linkSystem = useCtaLink('Desenvolvimento de sistema')
+// const linkBot = useCtaLink('Bot de automação')
+// const linkSystem = useCtaLink('Desenvolvimento de sistema')
 const linkWebsite = useCtaLink('Desenvolvimento de site')
-const linkMaintenance = useCtaLink('Manutenção de um site ou sistema')
+// const linkMaintenance = useCtaLink('Manutenção de um site ou sistema')
 
 onMounted(async () => {
   isLoading.value = false
@@ -21,10 +21,26 @@ onMounted(async () => {
   <section id="services" class="container relative mx-auto py-20 lg:px-0 xl:px-32">
     <h3 class="title-services">Serviços</h3>
 
-    <MegaBot />
-
     <div v-if="!isLoading" class="service-list">
-      <ServiceSection
+      <section class="section-item container mx-auto flex flex-row items-center gap-x-4">
+        <div class="w-1/2"></div>
+
+        <div class="mb-8 flex w-1/2 flex-col">
+          <strong class="mb-3 block font-oswald text-2xl uppercase">
+            Desenvolvimento de sites
+          </strong>
+
+          <p class="mb-8 block text-secondary-200">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
+            deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
+            Incidunt, commodi? In eum illo optio doloribus officia!
+          </p>
+
+          <ButtonCta :link-cta="linkWebsite">Saber mais</ButtonCta>
+        </div>
+      </section>
+
+      <!-- <ServiceSection
         :link-cta="linkWebsite"
         title="Desenvolvimento de sites"
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
@@ -54,8 +70,10 @@ onMounted(async () => {
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
         deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
         Incidunt, commodi? In eum illo optio doloribus officia!"
-      />
+      /> -->
     </div>
+
+    <MegaBot />
   </section>
 </template>
 
@@ -66,5 +84,12 @@ onMounted(async () => {
 
 .service-list {
   @apply mt-12;
+
+  &:after {
+    @apply bg-secondary-100 content-[''];
+  }
+}
+
+.section-item {
 }
 </style>
