@@ -58,7 +58,9 @@ export default class MegaBotActions {
   }
 
   public runState(state: string) {
-    if (!(state in States)) {
+    const actionExists = Object.values(States).find((value) => value === state)
+
+    if (!actionExists) {
       throw new Error(`Não existe a action "${state}" nos estados do modelo.`)
     }
 
@@ -66,7 +68,9 @@ export default class MegaBotActions {
   }
 
   public runEmote(emote: string) {
-    if (!(emote in Emotes)) {
+    const actionExists = Object.values(Emotes).find((value) => value === emote)
+
+    if (!actionExists) {
       throw new Error(`Não existe a action "${emote}" nos emotes do modelo.`)
     }
 
@@ -82,7 +86,11 @@ export default class MegaBotActions {
     if (animation in Emotes) {
       setTimeout(() => {
         this.runState(States.Idle)
-      }, 500)
+      }, 1000)
+
+      setTimeout(() => {
+        this.runState(States.Run)
+      }, 2000)
     }
   }
 
@@ -94,6 +102,7 @@ export default class MegaBotActions {
       previousAction.fadeOut(duration)
     }
 
+    this.checkActionHasLoop(activeAction, name)
     activeAction.reset().setEffectiveTimeScale(1).setEffectiveWeight(1).fadeIn(duration).play()
   }
 

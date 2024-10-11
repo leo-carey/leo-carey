@@ -3,7 +3,15 @@ import { onMounted, ref } from 'vue'
 import { GLTF, GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
 import MegaBotScene from './MegaBotScene'
-import MegaBotActions from './MegaBotActions'
+import MegaBotActions, { Emotes } from './MegaBotActions'
+import {
+  AnFilledLike,
+  CaCharacterNegativeNumber,
+  FlFilledHandWave,
+  GlFalsePositive,
+  MdOutlinedOutbound,
+  SiFacepunch
+} from '@kalimahapps/vue-icons'
 
 const botWrapper = ref<HTMLElement | null>(null)
 const megaBotReady = ref(false)
@@ -49,39 +57,78 @@ const whenBotArriving = () => {
     megaBotReady.value = true
   }
 }
+
+// ** Actions emotes
+const botPunch = () => {
+  megaBotActions.runEmote(Emotes.Punch)
+}
+const botJump = () => {
+  megaBotActions.runEmote(Emotes.Jump)
+}
+const botWave = () => {
+  megaBotActions.runEmote(Emotes.Wave)
+}
+const botThumbsUp = () => {
+  megaBotActions.runEmote(Emotes.ThumbsUp)
+}
+const botYes = () => {
+  megaBotActions.runEmote(Emotes.Yes)
+}
+const botNo = () => {
+  megaBotActions.runEmote(Emotes.No)
+}
 </script>
 
 <template>
   <section class="mega-bot-component">
-    <div ref="botWrapper" class="mega-bot" :class="{ ready: megaBotReady }"></div>
+    <div ref="botWrapper" :class="{ ready: megaBotReady }"></div>
 
     <div class="bot-controls">
-      <button class="btn-bot-control"></button>
+      <button class="btn-bot-control" @click="botPunch">
+        <SiFacepunch />
+      </button>
+
+      <button class="btn-bot-control" @click="botJump">
+        <MdOutlinedOutbound />
+      </button>
+
+      <button class="btn-bot-control" @click="botWave">
+        <FlFilledHandWave />
+      </button>
+
+      <button class="btn-bot-control" @click="botThumbsUp">
+        <AnFilledLike />
+      </button>
+
+      <button class="btn-bot-control" @click="botYes">
+        <GlFalsePositive />
+      </button>
+
+      <button class="btn-bot-control" @click="botNo">
+        <CaCharacterNegativeNumber />
+      </button>
     </div>
   </section>
 </template>
 
 <style scoped>
 .mega-bot-component {
-  @apply absolute left-32 top-[200px] h-full w-fit;
+  @apply absolute left-[50%] top-[350px] h-full w-fit -translate-x-[50%];
   perspective: 1000px;
 }
 
 .mega-bot {
-  overflow: hidden;
-  width: 500px;
-  height: 500px;
-  transform-style: preserve-3d;
-  transform: translateZ(-1000px) translate(-150px, -40px);
-  transition: transform 2s ease;
-
   &.ready {
-    transform: translateZ(0px) translate(0, 0);
+    @apply block;
   }
 }
 
 .bot-controls {
-  @apply absolute;
+  @apply absolute -left-14 -top-14 z-[999] grid grid-cols-4 gap-2;
+
+  button {
+    @apply cursor-pointer bg-cyan-600 p-4 text-xl text-primary-100 transition-colors hover:bg-cyan-400;
+  }
 }
 
 .btn-bot-control {
