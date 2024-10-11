@@ -25,16 +25,16 @@ onMounted(async () => {
 
     <div v-if="!isLoading" class="service-list">
       <ServiceSection
-        :link-cta="linkBot"
-        :image="resolvedImages['bot-automacao.png']"
-        title="Bot de automação"
+        image-position="right"
+        :link-cta="linkWebsite"
+        :image="resolvedImages['website.png']"
+        title="Desenvolvimento de sites"
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
         deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
         Incidunt, commodi? In eum illo optio doloribus officia!"
       />
 
       <ServiceSection
-        image-position="right"
         :link-cta="linkSystem"
         :image="resolvedImages['manutencao-sistemas.png']"
         title="Desenvolvimento de Sistemas"
@@ -44,6 +44,7 @@ onMounted(async () => {
       />
 
       <ServiceSection
+        image-position="right"
         :link-cta="linkMaintenance"
         :image="resolvedImages['manutencao.png']"
         title="Manutenção de um Site ou Sistemas"
@@ -53,10 +54,9 @@ onMounted(async () => {
       />
 
       <ServiceSection
-        image-position="right"
-        :link-cta="linkWebsite"
-        :image="resolvedImages['website.png']"
-        title="Desenvolvimento de sites"
+        :link-cta="linkBot"
+        :image="resolvedImages['bot-automacao.png']"
+        title="Bot de automação"
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
         deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
         Incidunt, commodi? In eum illo optio doloribus officia!"
