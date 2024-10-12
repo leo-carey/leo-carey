@@ -4,6 +4,7 @@ import { onMounted, ref } from 'vue'
 import { useCtaLink } from '../composables/useCtaLink'
 import MegaBot from './mega-bot/MegaBot.vue'
 import {
+  AkWhatsappFill,
   CaBuildTool,
   CaCicsSystemGroup,
   CoBrandDependabot,
@@ -41,12 +42,17 @@ onMounted(async () => {
           </div>
 
           <p class="item-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
-            deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
-            Incidunt, commodi? In eum illo optio doloribus officia!
+            Leve seu negócio para o próximo nível com um site moderno, rápido e personalizado.
+            Desenvolvemos sites que são mais do que apenas bonitos: são projetados para converter
+            visitantes em clientes, com uma experiência intuitiva e compatível com todos os
+            dispositivos.
           </p>
 
-          <ButtonCta :link-cta="linkWebsite" secondary>Saiba mais</ButtonCta>
+          <ButtonCta :link-cta="linkWebsite" secondary>
+            <AkWhatsappFill />
+
+            <span>Saiba mais</span>
+          </ButtonCta>
         </div>
 
         <div class="item-service">
@@ -57,12 +63,17 @@ onMounted(async () => {
           </div>
 
           <p class="item-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
-            deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
-            Incidunt, commodi? In eum illo optio doloribus officia!
+            Transforme suas operações com um sistema desenvolvido sob medida para atender às
+            necessidades do seu negócio. Criamos soluções eficientes, escaláveis e seguras para
+            otimizar processos, automatizar tarefas e melhorar a gestão, reduzindo custos e
+            aumentando a produtividade.
           </p>
 
-          <ButtonCta :link-cta="linkSystem" secondary>Saiba mais</ButtonCta>
+          <ButtonCta :link-cta="linkSystem" secondary>
+            <AkWhatsappFill />
+
+            <span>Saiba mais</span>
+          </ButtonCta>
         </div>
 
         <div class="item-service">
@@ -73,12 +84,17 @@ onMounted(async () => {
           </div>
 
           <p class="item-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
-            deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
-            Incidunt, commodi? In eum illo optio doloribus officia!
+            Seu projeto precisa de atenção para continuar funcionando da melhor forma? Oferecemos
+            serviços de manutenção para sites e sistemas já existentes, garantindo que tudo esteja
+            sempre atualizado, seguro e funcionando sem falhas. Sejam ajustes pontuais, atualizações
+            de tecnologia ou melhorias de desempenho.
           </p>
 
-          <ButtonCta :link-cta="linkMaintenance" secondary>Saiba mais</ButtonCta>
+          <ButtonCta :link-cta="linkMaintenance" secondary>
+            <AkWhatsappFill />
+
+            <span>Saiba mais</span>
+          </ButtonCta>
         </div>
 
         <div class="item-service">
@@ -89,12 +105,17 @@ onMounted(async () => {
           </div>
 
           <p class="item-description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
-            deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
-            Incidunt, commodi? In eum illo optio doloribus officia!
+            Automatize tarefas repetitivas e aumente a eficiência do seu negócio com nossos bots de
+            automação inteligentes. Desenvolvemos bots personalizados que ajudam a simplificar
+            processos, desde atendimento ao cliente até integração com sistemas e coleta de dados,
+            liberando sua equipe para focar no que realmente importa.
           </p>
 
-          <ButtonCta :link-cta="linkBot" secondary>Saiba mais</ButtonCta>
+          <ButtonCta :link-cta="linkBot" secondary>
+            <AkWhatsappFill />
+
+            <span>Saiba mais</span>
+          </ButtonCta>
         </div>
       </div>
     </div>
@@ -105,7 +126,7 @@ onMounted(async () => {
 
 <style scoped>
 .section-sticks {
-  @apply sticky top-[25%] z-[3] mt-52 h-screen w-full;
+  @apply sticky top-1/4 z-[3] -mb-64 mt-52 h-screen w-full;
 
   h3 {
     @apply text-[10rem] font-semibold leading-tight tracking-wide text-primary-200;
@@ -126,11 +147,11 @@ onMounted(async () => {
 }
 
 .service-list {
-  @apply mt-28 flex w-full flex-col gap-y-48;
+  @apply mt-28 flex w-full flex-col gap-y-64 pb-64;
 }
 
 .item-service {
-  @apply mx-auto w-1/2;
+  @apply w-1/2;
 
   .item-icon {
     @apply text-3xl text-primary-100;

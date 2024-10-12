@@ -3,12 +3,17 @@ import { onMounted, ref } from 'vue'
 import { GLTF, GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
 import MegaBotScene from './MegaBotScene'
-import MegaBotActions, { Emotes } from './MegaBotActions'
+import MegaBotActions, { Emotes, States } from './MegaBotActions'
 import {
   AnFilledLike,
-  CaCharacterNegativeNumber,
+  BsPersonWalking,
+  CaDownToBottom,
+  FaPersonWalkingArrowRight,
+  FaPersonWalkingWithCane,
   FlFilledHandWave,
+  GlCheckCircleFilled,
   GlFalsePositive,
+  HeFilledDeath,
   MdOutlinedOutbound,
   SiFacepunch
 } from '@kalimahapps/vue-icons'
@@ -65,6 +70,29 @@ const botYes = () => {
 const botNo = () => {
   megaBotActions.runEmote(Emotes.No)
 }
+
+// ** Actions states
+const botIdle = () => {
+  megaBotActions.runState(States.Idle)
+}
+const botWalk = () => {
+  megaBotActions.runState(States.Walk)
+}
+const botRun = () => {
+  megaBotActions.runState(States.Run)
+}
+const botDance = () => {
+  megaBotActions.runState(States.Dance)
+}
+const botDeath = () => {
+  megaBotActions.runState(States.Death)
+}
+// const botSit = () => {
+//   megaBotActions.runState(States.Sit)
+// }
+// const botStand = () => {
+//   megaBotActions.runState(States.Stand)
+// }
 </script>
 
 <template>
@@ -72,29 +100,55 @@ const botNo = () => {
     <div ref="botWrapper"></div>
 
     <div class="bot-controls">
-      <button class="btn-bot-control" @click="botPunch" v-tooltip="'Dar soco'">
-        <SiFacepunch />
-      </button>
+      <span>Interaja com o MegaBot</span>
 
-      <button class="btn-bot-control" @click="botJump" v-tooltip="'Pular'">
-        <MdOutlinedOutbound />
-      </button>
+      <div class="emote-list">
+        <button @click="botPunch" v-tooltip="'SOCAR'">
+          <SiFacepunch />
+        </button>
 
-      <button class="btn-bot-control" @click="botWave" v-tooltip="'Acenar'">
-        <FlFilledHandWave />
-      </button>
+        <button @click="botJump" v-tooltip="'PULAR'">
+          <MdOutlinedOutbound />
+        </button>
 
-      <button class="btn-bot-control" @click="botThumbsUp" v-tooltip="'Like'">
-        <AnFilledLike />
-      </button>
+        <button @click="botWave" v-tooltip="'ACENAR'">
+          <FlFilledHandWave />
+        </button>
 
-      <button class="btn-bot-control" @click="botYes" v-tooltip="'Positivo'">
-        <GlFalsePositive />
-      </button>
+        <button @click="botThumbsUp" v-tooltip="'LIKE'">
+          <AnFilledLike />
+        </button>
 
-      <button class="btn-bot-control" @click="botNo" v-tooltip="'Negativo'">
-        <CaCharacterNegativeNumber />
-      </button>
+        <button @click="botYes" v-tooltip="'POSITIVO'">
+          <GlCheckCircleFilled />
+        </button>
+
+        <button @click="botNo" v-tooltip="'NEGATIVO'">
+          <GlFalsePositive />
+        </button>
+      </div>
+
+      <div class="state-list">
+        <button @click="botIdle" v-tooltip="'OCIOSO'">
+          <CaDownToBottom />
+        </button>
+
+        <button @click="botWalk" v-tooltip="'CAMINHAR'">
+          <BsPersonWalking />
+        </button>
+
+        <button @click="botRun" v-tooltip="'CORRER'">
+          <FaPersonWalkingArrowRight />
+        </button>
+
+        <button @click="botDance" v-tooltip="'DANÇAR'">
+          <FaPersonWalkingWithCane />
+        </button>
+
+        <button @click="botDeath" v-tooltip="'DESMONTAR'">
+          <HeFilledDeath />
+        </button>
+      </div>
     </div>
   </section>
 </template>
@@ -102,19 +156,36 @@ const botNo = () => {
 <style scoped>
 .mega-bot-component {
   @apply absolute left-[50%] top-0 mt-28 w-fit;
-  perspective: 1000px;
 }
 
 .bot-controls {
-  @apply absolute left-3 top-0 z-[999] grid grid-cols-4 gap-2;
-  transform: rotateZ(-2deg) rotateY(20deg) rotateX(-25deg);
+  @apply absolute -left-4 -top-16 z-[999];
+  perspective: 1000px;
+
+  > span {
+    @apply mb-4 ml-1 block font-oswald text-sm uppercase;
+  }
 
   button {
-    @apply cursor-pointer bg-cyan-600 p-4 text-xl text-primary-100 transition-colors hover:bg-cyan-400;
+    @apply w-fit cursor-pointer p-4 text-xl transition-colors;
   }
-}
 
-.btn-bot-control {
-  @apply block;
+  .emote-list {
+    @apply relative grid grid-cols-4 gap-2;
+    transform: rotateZ(-1deg) rotateY(15deg) rotateX(-20deg);
+
+    button {
+      @apply bg-cyan-600 text-primary-100 hover:bg-cyan-400;
+    }
+  }
+
+  .state-list {
+    @apply relative -ml-2 mt-6 grid w-fit grid-cols-2 gap-2;
+    transform: rotateZ(-1deg) rotateY(15deg) rotateX(-20deg);
+
+    button {
+      @apply bg-orange-500 text-primary-100 hover:bg-orange-400;
+    }
+  }
 }
 </style>
