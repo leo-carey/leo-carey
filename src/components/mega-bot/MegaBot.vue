@@ -2,8 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { GLTF, GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 
-import MegaBotScene from './MegaBotScene'
-import MegaBotActions, { Emotes, States } from './MegaBotActions'
+// ** Reference icons https://vue-icons.kalimah-apps.com/
 import {
   AnFilledLike,
   BsPersonWalking,
@@ -17,6 +16,9 @@ import {
   MdOutlinedOutbound,
   SiFacepunch
 } from '@kalimahapps/vue-icons'
+
+import MegaBotScene from './MegaBotScene'
+import MegaBotActions, { Emotes, States } from './MegaBotActions'
 
 const botWrapper = ref<HTMLElement | null>(null)
 
