@@ -39,18 +39,32 @@ const linkCTA = useCtaLink()
 <style scoped>
 .title-banner {
   @apply text-center text-[240px] font-semibold leading-tight tracking-wide text-secondary-300;
+  @apply sticky top-0 z-10;
 }
 
 .content-banner {
   @apply container m-auto flex h-[50%] items-start justify-between lg:px-0 xl:px-32;
+  @apply relative z-40;
+
+  animation: fadeContent both;
+  animation-timeline: view(0% 55%);
 }
 
 .image-avatar {
-  @apply absolute bottom-0 left-[50%] block w-[500px] translate-x-[-50%];
+  @apply absolute bottom-0 left-[50%] z-20 block w-[500px] translate-x-[-50%];
 }
 
 .btn-cta {
   @apply mt-5 w-fit rounded-sm bg-secondary-100 px-8 py-4 text-primary-100 transition-colors hover:bg-secondary-300;
   @apply flex flex-row items-center gap-x-2;
+}
+
+@keyframes fadeContent {
+  to {
+    opacity: 0;
+  }
+  form {
+    opacity: 1;
+  }
 }
 </style>
