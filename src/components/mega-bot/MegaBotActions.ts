@@ -26,10 +26,12 @@ let previousAction: THREE.AnimationAction
 export default class MegaBotActions {
   model: THREE.Group<THREE.Object3DEventMap>
   modelAnimations: THREE.AnimationClip[]
+  idleTime!: ReturnType<typeof setInterval>
 
   static DEFAULT_ANIMATION = States.Run
   static DURATION_STATE = 0.5
   static DURATION_EMOTE = 0.2
+  static DURATION_IDLE = 1000 * 5
 
   constructor(model: THREE.Group<THREE.Object3DEventMap>, modelAnimations: THREE.AnimationClip[]) {
     this.model = model
@@ -85,13 +87,19 @@ export default class MegaBotActions {
 
     if (animation in Emotes) {
       setTimeout(() => {
-        this.runState(States.Idle)
-      }, 1000)
+        if (this.idleTime) {
+          clearInterval(this.idleTime)
+        }
 
-      setTimeout(() => {
-        this.runState(States.Run)
-      }, 2000)
+        this.runState(States.Idle)
+        this.idleTime = setInterval(this.countIdleTime.bind(this), MegaBotActions.DURATION_IDLE)
+      }, 500)
     }
+  }
+
+  private countIdleTime() {
+    this.runState(States.Run)
+    clearInterval(this.idleTime)
   }
 
   private loadNewMovement(name: string, duration: number) {

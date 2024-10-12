@@ -6,7 +6,7 @@ import Footer from './components/Footer.vue'
 import GoTop from './components/GoTop.vue'
 import Header from './components/Header.vue'
 import Services from './components/Services.vue'
-import Testimonies from './components/Testimonies.vue'
+// import Testimonies from './components/Testimonies.vue'
 </script>
 
 <template>
@@ -15,7 +15,7 @@ import Testimonies from './components/Testimonies.vue'
     <Banner />
     <About />
     <Services />
-    <Testimonies />
+    <!-- <Testimonies /> -->
     <Footer />
 
     <CTAFloat />

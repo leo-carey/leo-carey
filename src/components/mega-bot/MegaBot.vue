@@ -14,7 +14,6 @@ import {
 } from '@kalimahapps/vue-icons'
 
 const botWrapper = ref<HTMLElement | null>(null)
-const megaBotReady = ref(false)
 
 let megaBotScene: MegaBotScene
 let megaBotActions: MegaBotActions
@@ -44,19 +43,8 @@ onMounted(() => {
 
     const renderer = megaBotScene.loadRender()
     botWrapper.value?.appendChild(renderer.domElement)
-
-    window.addEventListener('scroll', whenBotArriving)
   }
 })
-
-const whenBotArriving = () => {
-  const scrollPosition = window.scrollY
-  const sectionParentOffsetTop = botWrapper.value?.parentElement?.parentElement?.offsetTop
-
-  if (sectionParentOffsetTop && !megaBotReady.value && scrollPosition >= sectionParentOffsetTop) {
-    megaBotReady.value = true
-  }
-}
 
 // ** Actions emotes
 const botPunch = () => {
@@ -81,30 +69,30 @@ const botNo = () => {
 
 <template>
   <section class="mega-bot-component">
-    <div ref="botWrapper" :class="{ ready: megaBotReady }"></div>
+    <div ref="botWrapper"></div>
 
     <div class="bot-controls">
-      <button class="btn-bot-control" @click="botPunch">
+      <button class="btn-bot-control" @click="botPunch" v-tooltip="'Dar soco'">
         <SiFacepunch />
       </button>
 
-      <button class="btn-bot-control" @click="botJump">
+      <button class="btn-bot-control" @click="botJump" v-tooltip="'Pular'">
         <MdOutlinedOutbound />
       </button>
 
-      <button class="btn-bot-control" @click="botWave">
+      <button class="btn-bot-control" @click="botWave" v-tooltip="'Acenar'">
         <FlFilledHandWave />
       </button>
 
-      <button class="btn-bot-control" @click="botThumbsUp">
+      <button class="btn-bot-control" @click="botThumbsUp" v-tooltip="'Like'">
         <AnFilledLike />
       </button>
 
-      <button class="btn-bot-control" @click="botYes">
+      <button class="btn-bot-control" @click="botYes" v-tooltip="'Positivo'">
         <GlFalsePositive />
       </button>
 
-      <button class="btn-bot-control" @click="botNo">
+      <button class="btn-bot-control" @click="botNo" v-tooltip="'Negativo'">
         <CaCharacterNegativeNumber />
       </button>
     </div>
@@ -113,18 +101,13 @@ const botNo = () => {
 
 <style scoped>
 .mega-bot-component {
-  @apply absolute left-[50%] top-[350px] h-full w-fit -translate-x-[50%];
+  @apply sticky top-[350px] mt-28 w-fit;
   perspective: 1000px;
 }
 
-.mega-bot {
-  &.ready {
-    @apply block;
-  }
-}
-
 .bot-controls {
-  @apply absolute -left-14 -top-14 z-[999] grid grid-cols-4 gap-2;
+  @apply absolute left-3 top-0 z-[999] grid grid-cols-4 gap-2;
+  transform: rotateZ(-2deg) rotateY(20deg) rotateX(-25deg);
 
   button {
     @apply cursor-pointer bg-cyan-600 p-4 text-xl text-primary-100 transition-colors hover:bg-cyan-400;
