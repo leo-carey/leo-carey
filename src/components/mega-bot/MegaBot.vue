@@ -101,7 +101,7 @@ const botNo = () => {
 
 <style scoped>
 .mega-bot-component {
-  @apply sticky top-[350px] mt-28 w-fit;
+  @apply absolute left-[50%] top-0 mt-28 w-fit;
   perspective: 1000px;
 }
 

@@ -24,29 +24,23 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section id="services" class="relative w-full py-20">
-    <div class="flex flex-row items-start justify-end">
-      <div class="w-1/2"></div>
+  <section id="services" class="relative flex w-full flex-row justify-between">
+    <div class="section-sticks">
+      <h3>Serviços</h3>
 
-      <div class="w-1/2 pl-16">
-        <h3 class="title-services">Serviços</h3>
-      </div>
+      <MegaBot />
     </div>
 
     <div class="services-content-wrapper">
-      <MegaBot />
-
       <div v-if="!isLoading" class="service-list">
         <div class="item-service">
-          <div class="flex flex-wrap items-start gap-x-4">
-            <CaBuildTool class="text-3xl text-primary-100" />
+          <div class="item-title">
+            <CaBuildTool class="item-icon" />
 
-            <strong class="mb-6 block font-oswald text-2xl uppercase text-primary-200">
-              Desenvolvimento de sites
-            </strong>
+            <strong>Desenvolvimento de sites</strong>
           </div>
 
-          <p class="mb-8 block text-lg font-normal text-primary-100">
+          <p class="item-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
             deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
             Incidunt, commodi? In eum illo optio doloribus officia!
@@ -56,15 +50,13 @@ onMounted(async () => {
         </div>
 
         <div class="item-service">
-          <div class="flex flex-wrap items-start gap-x-4">
-            <CaCicsSystemGroup class="text-3xl text-primary-100" />
+          <div class="item-title">
+            <CaCicsSystemGroup class="item-icon" />
 
-            <strong class="mb-6 block font-oswald text-2xl uppercase text-primary-200">
-              Desenvolvimento de Sistemas
-            </strong>
+            <strong>Desenvolvimento de Sistemas</strong>
           </div>
 
-          <p class="mb-8 block text-lg font-normal text-primary-100">
+          <p class="item-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
             deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
             Incidunt, commodi? In eum illo optio doloribus officia!
@@ -74,15 +66,13 @@ onMounted(async () => {
         </div>
 
         <div class="item-service">
-          <div class="flex flex-wrap items-start gap-x-4">
-            <GlIssueTypeMaintenance class="text-3xl text-primary-100" />
+          <div class="item-title">
+            <GlIssueTypeMaintenance class="item-icon" />
 
-            <strong class="mb-6 block font-oswald text-2xl uppercase text-primary-200">
-              Manutenção de Projeto
-            </strong>
+            <strong>Manutenção de Projeto</strong>
           </div>
 
-          <p class="mb-8 block text-lg font-normal text-primary-100">
+          <p class="item-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
             deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
             Incidunt, commodi? In eum illo optio doloribus officia!
@@ -92,15 +82,13 @@ onMounted(async () => {
         </div>
 
         <div class="item-service">
-          <div class="flex flex-wrap items-start gap-x-4">
-            <CoBrandDependabot class="text-3xl text-primary-100" />
+          <div class="item-title">
+            <CoBrandDependabot class="item-icon" />
 
-            <strong class="mb-6 block font-oswald text-2xl uppercase text-primary-200">
-              Bot de automação
-            </strong>
+            <strong>Bot de automação</strong>
           </div>
 
-          <p class="mb-8 block text-lg font-normal text-primary-100">
+          <p class="item-description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eos veniam perspiciatis
             deserunt, architecto ad sapiente nesciunt, necessitatibus quos eius corporis libero!
             Incidunt, commodi? In eum illo optio doloribus officia!
@@ -116,12 +104,25 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.title-services {
-  @apply relative z-[3] mb-8 text-6xl font-semibold leading-tight tracking-wide text-primary-200;
+.section-sticks {
+  @apply sticky top-[25%] z-[3] mt-52 h-screen w-full;
+
+  h3 {
+    @apply text-[10rem] font-semibold leading-tight tracking-wide text-primary-200;
+    @apply absolute -top-[50%] left-20 [writing-mode:vertical-lr];
+    text-orientation: mixed;
+    transform: rotate(180deg) translateY(-50%);
+    text-shadow:
+      -1px -1px 0 #2b2e23,
+      1px -1px 0 #2b2e23,
+      -1px 1px 0 #2b2e23,
+      1px 1px 0 #2b2e23;
+    -webkit-text-stroke: 2px black;
+  }
 }
 
 .services-content-wrapper {
-  @apply container relative z-[2] m-auto flex flex-row items-start justify-between lg:px-0 xl:px-32;
+  @apply container relative z-[2] m-auto mt-32 flex flex-row items-start justify-between lg:px-0 xl:px-32;
 }
 
 .service-list {
@@ -129,7 +130,23 @@ onMounted(async () => {
 }
 
 .item-service {
-  @apply container mx-auto mb-8 w-1/2;
+  @apply mx-auto w-1/2;
+
+  .item-icon {
+    @apply text-3xl text-primary-100;
+  }
+
+  .item-title {
+    @apply flex flex-wrap items-start gap-x-4;
+
+    strong {
+      @apply mb-6 block font-oswald text-2xl uppercase text-primary-200;
+    }
+  }
+
+  .item-description {
+    @apply mb-8 block text-lg font-normal text-primary-100;
+  }
 }
 
 .background-services {
