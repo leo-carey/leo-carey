@@ -29,17 +29,6 @@ const linkCTA = useCtaLink()
             >Leo Carey</a
           >
         </span>
-
-        <span class="block">
-          Ilustrações retiradas do site
-          <a
-            href="https://storyset.com"
-            class="font-semibold underline hover:no-underline"
-            target="_blank"
-          >
-            Storyset
-          </a>
-        </span>
       </div>
 
       <span>© Copyright 2024</span>
