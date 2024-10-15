@@ -143,7 +143,7 @@ onMounted(async () => {
 }
 
 .services-content-wrapper {
-  @apply container relative z-[2] m-auto mt-32 flex flex-row items-start justify-between lg:px-0 xl:px-32;
+  @apply relative z-[2] m-auto mt-32 flex w-full flex-row items-start justify-between lg:px-0 xl:px-32;
 }
 
 .service-list {
@@ -151,10 +151,12 @@ onMounted(async () => {
 }
 
 .item-service {
-  @apply w-1/2;
+  @apply w-full rounded-md border-[1px] border-solid border-primary-100/30 px-8 py-8 xl:w-3/4;
+  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.3), #2b2e23ed);
+  backdrop-filter: blur(20px);
 
   .item-icon {
-    @apply text-3xl text-primary-100;
+    @apply text-3xl text-primary-200;
   }
 
   .item-title {
@@ -166,7 +168,7 @@ onMounted(async () => {
   }
 
   .item-description {
-    @apply mb-8 block text-lg font-normal text-primary-100;
+    @apply mb-10 block text-lg font-normal text-primary-100;
   }
 }
 

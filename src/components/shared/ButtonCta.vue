@@ -23,7 +23,7 @@ defineProps({
   @apply flex flex-row items-center gap-x-2;
 
   &.secondary {
-    @apply bg-orange-300 text-secondary-200 hover:bg-orange-200;
+    @apply bg-orange-500 text-primary-100 hover:bg-orange-200 hover:text-secondary-100;
   }
 }
 </style>
