@@ -26,6 +26,10 @@ onMounted(async () => {
 
 <template>
   <section id="services" class="relative flex w-full flex-row justify-between">
+    <div class="background-services-type">
+      <span v-for="item in Array(50)" :key="item">Serviços</span>
+    </div>
+
     <div class="section-sticks">
       <h3>Serviços</h3>
 
@@ -129,16 +133,10 @@ onMounted(async () => {
   @apply sticky top-1/4 z-[3] -mb-64 mt-52 h-screen w-full;
 
   h3 {
-    @apply text-[10rem] font-semibold leading-tight tracking-wide text-primary-200;
+    @apply text-[10rem] font-semibold leading-tight tracking-wide text-secondary-200;
     @apply absolute -top-[50%] left-20 [writing-mode:vertical-lr];
     text-orientation: mixed;
     transform: rotate(180deg) translateY(-50%);
-    text-shadow:
-      -1px -1px 0 #2b2e23,
-      1px -1px 0 #2b2e23,
-      -1px 1px 0 #2b2e23,
-      1px 1px 0 #2b2e23;
-    -webkit-text-stroke: 2px black;
   }
 }
 
@@ -147,13 +145,17 @@ onMounted(async () => {
 }
 
 .service-list {
-  @apply mt-28 flex w-full flex-col gap-y-64 pb-64;
+  @apply mt-28 flex w-full flex-col gap-y-40 pb-64;
 }
 
 .item-service {
   @apply w-full rounded-md border-[1px] border-solid border-primary-100/30 px-8 py-8 xl:w-3/4;
-  background-image: linear-gradient(120deg, rgba(255, 255, 255, 0.3), #2b2e23ed);
-  backdrop-filter: blur(20px);
+  background-image: linear-gradient(120deg, rgba(180, 180, 180, 0.3), rgba(2, 2, 2, 0.2));
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(200px) scale(0.3);
+  animation: fadeContent both;
+  animation-timeline: view(70% 30%);
 
   .item-icon {
     @apply text-3xl text-primary-200;
@@ -172,12 +174,35 @@ onMounted(async () => {
   }
 }
 
+.background-services-type {
+  @apply absolute z-[1] flex h-full w-screen flex-row flex-wrap items-center justify-center overflow-hidden;
+
+  span {
+    @apply mr-8 block font-oswald text-9xl font-bold uppercase leading-snug tracking-wide text-zinc-400/5;
+  }
+
+  &::after {
+    @apply absolute right-0 top-0 h-full w-1/3 bg-secondary-200 content-[''];
+  }
+}
+
 .background-services {
   @apply absolute left-0 top-0 z-[1] h-full w-full overflow-y-hidden;
 
   &:after {
-    @apply absolute -top-[50%] right-[10%] block h-[200%] w-1/2 bg-secondary-100 content-[''];
+    @apply absolute -top-[50%] right-[10%] block h-[200%] w-1/2 bg-secondary-100 shadow-2xl content-[''];
     transform: rotate(10deg);
+  }
+}
+
+@keyframes fadeContent {
+  form {
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 </style>

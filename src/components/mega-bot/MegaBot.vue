@@ -163,6 +163,7 @@ const botDeath = () => {
 .bot-controls {
   @apply absolute -left-4 -top-16 z-[999];
   perspective: 1000px;
+  animation: moveControls 10s infinite;
 
   > span {
     @apply mb-4 ml-1 block font-oswald text-sm uppercase;
@@ -188,6 +189,21 @@ const botDeath = () => {
     button {
       @apply bg-orange-500 text-primary-100 hover:bg-orange-400;
     }
+  }
+}
+
+@keyframes moveControls {
+  0% {
+    transform: translate(-15px, -15px) rotateX(-10deg);
+  }
+  25% {
+    transform: translate(15px, 15px) rotateX(20deg);
+  }
+  50% {
+    transform: translate(0, 0) rotateX(0);
+  }
+  100% {
+    transform: translate(-15px, -15px) rotateX(-10deg);
   }
 }
 </style>
