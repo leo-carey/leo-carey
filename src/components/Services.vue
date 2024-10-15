@@ -130,11 +130,11 @@ onMounted(async () => {
 
 <style scoped>
 .section-sticks {
-  @apply sticky top-1/4 z-[3] -mb-64 mt-52 h-screen w-full;
+  @apply sticky top-[5rem] z-[3] -mb-24 mt-52 h-screen w-full;
 
   h3 {
-    @apply text-[10rem] font-semibold leading-tight tracking-wide text-secondary-200;
-    @apply absolute -top-[50%] left-20 [writing-mode:vertical-lr];
+    @apply text-[12rem] font-semibold leading-tight tracking-wide text-secondary-200/80;
+    @apply absolute -top-[50%] left-12 [writing-mode:vertical-lr];
     text-orientation: mixed;
     transform: rotate(180deg) translateY(-50%);
   }
