@@ -11,6 +11,10 @@ import Services from './components/Services.vue'
 
 <template>
   <main>
+    <div class="secret">
+      <span>secret code:</span> soco, soco, pulo, soco, acena, soco, like, pula
+    </div>
+
     <Header />
     <Banner />
     <About />
@@ -22,3 +26,13 @@ import Services from './components/Services.vue'
     <GoTop />
   </main>
 </template>
+
+<style scoped>
+.secret {
+  @apply px-2 text-primary-200 selection:bg-cyan-400;
+
+  span {
+    @apply font-semibold;
+  }
+}
+</style>
