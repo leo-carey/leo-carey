@@ -25,9 +25,9 @@ const linkCTA = useCtaLink()
       <div>
         <span class="block">
           Desenvolvido por
-          <a :href="linkCTA" target="_blank" class="font-semibold underline hover:no-underline"
-            >Leo Carey</a
-          >
+          <a :href="linkCTA" target="_blank" class="font-semibold underline hover:no-underline">
+            Leo Carey
+          </a>
         </span>
       </div>
 
