@@ -141,7 +141,8 @@ onMounted(async () => {
 
 <style scoped>
 .section-sticks {
-  @apply relative z-[3] order-last mb-28 mt-20 h-auto w-full lg:sticky lg:top-[5rem] lg:order-none lg:mb-0 lg:mt-52 lg:h-screen;
+  @apply relative z-[3] order-last h-auto w-full lg:sticky lg:order-none lg:h-screen;
+  @apply mb-28 mt-20 lg:top-[5rem] lg:mb-0 lg:mt-52;
 
   h3 {
     @apply text-[12rem] font-semibold leading-tight tracking-wide text-secondary-200/80;
@@ -158,8 +159,8 @@ onMounted(async () => {
 }
 
 .services-content-wrapper {
-  @apply relative z-[2] m-auto flex w-full flex-row items-start justify-between;
-  @apply px-4 lg:mt-32 lg:px-0 xl:px-32;
+  @apply relative z-[2] m-auto flex w-fit flex-row items-start justify-between;
+  @apply px-4 lg:mt-32 lg:pl-28 lg:pr-4 xl:px-32;
 }
 
 .service-list {

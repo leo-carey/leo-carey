@@ -157,7 +157,8 @@ const botDeath = () => {
 
 <style scoped>
 .mega-bot-component {
-  @apply relative left-[50%] top-[8rem] w-fit -translate-x-[50%] lg:absolute lg:mt-28 lg:translate-x-0;
+  @apply relative w-[380px] lg:absolute;
+  @apply left-[50%] top-[8rem] -translate-x-[50%] lg:mt-28 lg:-translate-x-[10%] xl:translate-x-0;
 }
 
 .bot-controls {
