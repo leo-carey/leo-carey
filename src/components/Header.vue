@@ -14,13 +14,13 @@ const linkCTA = useCtaLink()
 <template>
   <header id="home" class="header">
     <h1 class="relative font-oswald text-3xl font-semibold uppercase">
-      <a href="/">Leo<small class="absolute top-0 text-xs lowercase">carey</small></a>
+      <a href="/leo-carey/">Leo<small class="absolute top-0 text-xs lowercase">carey</small></a>
     </h1>
 
     <nav>
       <ul class="flex flex-row items-center gap-x-8">
         <li class="hidden uppercase md:block">
-          <a href="/" class="menu-item">home</a>
+          <a href="/leo-carey/" class="menu-item">home</a>
         </li>
 
         <li class="hidden uppercase md:block">
@@ -69,6 +69,7 @@ const linkCTA = useCtaLink()
 .header {
   @apply container flex items-center justify-between;
   @apply m-auto mb-4 px-6 py-3 lg:px-12 lg:py-6 xl:px-32;
+  @apply relative z-[998];
 }
 
 .menu-item {
