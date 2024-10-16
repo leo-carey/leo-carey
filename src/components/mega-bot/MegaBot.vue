@@ -34,7 +34,7 @@ onMounted(() => {
     const loader = new GLTFLoader()
 
     loader.load(
-      './src/assets/mega-bot/RobotExpressive.glb',
+      '/leo-carey/models/RobotExpressive.glb',
       function (gltf: GLTF) {
         megaBotActions = new MegaBotActions(gltf.scene, gltf.animations)
         megaBotScene.addModel(megaBotActions.model)
