@@ -9,6 +9,7 @@ html {
 html,
 body {
   @apply relative bg-primary-200 font-medium tracking-tight antialiased;
+  @apply selection:text-primary-200 selection:bg-orange-500;
 }
 
 h1,
@@ -21,4 +22,15 @@ h4 {
 .tooltip {
   @apply invisible absolute z-[9999] rounded-md bg-secondary-200 px-4 py-2;
   @apply text-nowrap font-oswald text-sm leading-normal text-primary-100;
+}
+
+@keyframes fadeContent {
+  form {
+    opacity: 0;
+    transform: translateY(200px) scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }

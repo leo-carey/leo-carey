@@ -10,7 +10,7 @@ const currentExperienceTime = useExperienceTime()
     <Brands />
 
     <div class="mx-auto mt-20 flex items-start justify-center">
-      <div class="w-1/4">
+      <div class="our-pic">
         <img src="@/assets/me/family.jpg" alt="Leo Carey Avatar" class="max-w-[80%]" />
       </div>
 
@@ -43,8 +43,18 @@ const currentExperienceTime = useExperienceTime()
 </template>
 
 <style scoped>
+.our-pic {
+  @apply w-1/4 opacity-0;
+  transform: translateY(200px) scale(0.3);
+  animation: fadeContent both;
+  animation-timeline: view(70% 30%);
+}
+
 .about-me {
-  @apply w-1/4;
+  @apply w-1/4 opacity-0;
+  transform: translateY(200px) scale(0.3);
+  animation: fadeContent both;
+  animation-timeline: view(70% 30%);
 
   p {
     @apply mb-4 block text-lg font-normal leading-normal;

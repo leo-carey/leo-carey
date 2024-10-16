@@ -34,7 +34,7 @@ const loadTechs = async () => {
     </span>
     <span>Com tecnologias atuais de mercado:</span>
 
-    <ul v-if="!isLoading" class="m-0 mt-4 flex flex-row flex-wrap items-center gap-x-2 p-0">
+    <ul v-if="!isLoading" class="tech-list">
       <li
         v-for="(tech, techIndex) in techs"
         :key="techIndex"
@@ -50,11 +50,17 @@ const loadTechs = async () => {
 </template>
 
 <style scoped>
+.tech-list {
+  @apply m-0 mt-4 flex flex-row flex-wrap items-center justify-center gap-x-2 p-0 lg:justify-start;
+}
+
 .tech-item {
-  @apply relative flex h-14 w-14 items-center justify-center rounded-md bg-secondary-300/20 p-3 text-center text-xl font-semibold text-primary-100;
+  @apply relative h-12 w-12 rounded-md bg-secondary-300/20 p-3;
+  @apply flex flex-row items-center justify-center gap-2;
+  @apply text-center text-xl font-semibold text-primary-100;
 
   &.item-plus {
-    @apply cursor-pointer transition-colors hover:bg-secondary-100;
+    @apply cursor-pointer transition-colors hover:bg-orange-500;
   }
 
   img {

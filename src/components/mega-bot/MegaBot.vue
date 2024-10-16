@@ -178,7 +178,7 @@ const botDeath = () => {
     transform: rotateZ(-1deg) rotateY(15deg) rotateX(-20deg);
 
     button {
-      @apply bg-cyan-600 text-primary-100 hover:bg-cyan-400;
+      @apply bg-cyan-600 text-primary-100 hover:bg-cyan-200;
     }
   }
 
@@ -187,7 +187,7 @@ const botDeath = () => {
     transform: rotateZ(-1deg) rotateY(15deg) rotateX(-20deg);
 
     button {
-      @apply bg-orange-500 text-primary-100 hover:bg-orange-400;
+      @apply bg-orange-500 text-primary-100 hover:bg-orange-200;
     }
   }
 }

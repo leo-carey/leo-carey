@@ -40,13 +40,14 @@ onMounted(async () => {
       <div v-if="!isLoading" class="service-list">
         <div class="item-service">
           <div class="item-title">
-            <CaBuildTool class="item-icon" />
-
             <strong>Desenvolvimento de sites</strong>
           </div>
 
-          <p class="item-description">
-            Leve seu negócio para o próximo nível com um site moderno, rápido e personalizado.
+          <CaBuildTool class="item-icon" />
+
+          <p>Leve seu negócio para o próximo nível com um site moderno, rápido e personalizado.</p>
+
+          <p>
             Desenvolvemos sites que são mais do que apenas bonitos: são projetados para converter
             visitantes em clientes, com uma experiência intuitiva e compatível com todos os
             dispositivos.
@@ -61,16 +62,19 @@ onMounted(async () => {
 
         <div class="item-service">
           <div class="item-title">
-            <CaCicsSystemGroup class="item-icon" />
-
             <strong>Desenvolvimento de Sistemas</strong>
           </div>
 
-          <p class="item-description">
+          <CaCicsSystemGroup class="item-icon" />
+
+          <p>
             Transforme suas operações com um sistema desenvolvido sob medida para atender às
-            necessidades do seu negócio. Criamos soluções eficientes, escaláveis e seguras para
-            otimizar processos, automatizar tarefas e melhorar a gestão, reduzindo custos e
-            aumentando a produtividade.
+            necessidades do seu negócio.
+          </p>
+
+          <p>
+            Criamos soluções eficientes, escaláveis e seguras para otimizar processos, automatizar
+            tarefas e melhorar a gestão, reduzindo custos e aumentando a produtividade.
           </p>
 
           <ButtonCta :link-cta="linkSystem" secondary>
@@ -82,17 +86,18 @@ onMounted(async () => {
 
         <div class="item-service">
           <div class="item-title">
-            <GlIssueTypeMaintenance class="item-icon" />
-
             <strong>Manutenção de Projeto</strong>
           </div>
 
-          <p class="item-description">
+          <GlIssueTypeMaintenance class="item-icon" />
+
+          <p>
             Seu projeto precisa de atenção para continuar funcionando da melhor forma? Oferecemos
             serviços de manutenção para sites e sistemas já existentes, garantindo que tudo esteja
-            sempre atualizado, seguro e funcionando sem falhas. Sejam ajustes pontuais, atualizações
-            de tecnologia ou melhorias de desempenho.
+            sempre atualizado, seguro e funcionando sem falhas.
           </p>
+
+          <p>Sejam ajustes pontuais, atualizações de tecnologia ou melhorias de desempenho.</p>
 
           <ButtonCta :link-cta="linkMaintenance" secondary>
             <AkWhatsappFill />
@@ -103,16 +108,20 @@ onMounted(async () => {
 
         <div class="item-service">
           <div class="item-title">
-            <CoBrandDependabot class="item-icon" />
-
             <strong>Bot de automação</strong>
           </div>
 
-          <p class="item-description">
+          <CoBrandDependabot class="item-icon" />
+
+          <p>
             Automatize tarefas repetitivas e aumente a eficiência do seu negócio com nossos bots de
-            automação inteligentes. Desenvolvemos bots personalizados que ajudam a simplificar
-            processos, desde atendimento ao cliente até integração com sistemas e coleta de dados,
-            liberando sua equipe para focar no que realmente importa.
+            automação inteligentes.
+          </p>
+
+          <p>
+            Desenvolvemos bots personalizados que ajudam a simplificar processos, desde atendimento
+            ao cliente até integração com sistemas e coleta de dados, liberando sua equipe para
+            focar no que realmente importa.
           </p>
 
           <ButtonCta :link-cta="linkBot" secondary>
@@ -130,7 +139,7 @@ onMounted(async () => {
 
 <style scoped>
 .section-sticks {
-  @apply sticky top-[5rem] z-[3] -mb-24 mt-52 h-screen w-full;
+  @apply sticky top-[5rem] z-[3] mb-0 mt-52 h-screen w-full;
 
   h3 {
     @apply text-[12rem] font-semibold leading-tight tracking-wide text-secondary-200/80;
@@ -145,32 +154,30 @@ onMounted(async () => {
 }
 
 .service-list {
-  @apply mt-28 flex w-full flex-col gap-y-40 pb-64;
+  @apply mt-32 flex w-full flex-col gap-y-40 pb-80;
 }
 
 .item-service {
-  @apply w-full rounded-md border-[1px] border-solid border-primary-100/30 px-8 py-8 xl:w-3/4;
-  background-image: linear-gradient(120deg, rgba(180, 180, 180, 0.3), rgba(2, 2, 2, 0.2));
+  @apply w-full rounded-2xl bg-secondary-400/65 px-8 py-8 opacity-0 xl:w-3/4;
   backdrop-filter: blur(10px);
-  opacity: 0;
   transform: translateY(200px) scale(0.3);
   animation: fadeContent both;
   animation-timeline: view(70% 30%);
 
   .item-icon {
-    @apply text-3xl text-primary-200;
+    @apply float-right pb-6 pl-3 text-9xl text-cyan-500;
   }
 
   .item-title {
     @apply flex flex-wrap items-start gap-x-4;
 
     strong {
-      @apply mb-6 block font-oswald text-2xl uppercase text-primary-200;
+      @apply mb-6 block font-oswald text-3xl uppercase text-primary-200;
     }
   }
 
-  .item-description {
-    @apply mb-10 block text-lg font-normal text-primary-100;
+  p {
+    @apply mb-10 block font-normal text-primary-100;
   }
 }
 
@@ -192,17 +199,6 @@ onMounted(async () => {
   &:after {
     @apply absolute -top-[50%] right-[10%] block h-[200%] w-1/2 bg-secondary-100 shadow-2xl content-[''];
     transform: rotate(10deg);
-  }
-}
-
-@keyframes fadeContent {
-  form {
-    opacity: 0;
-    transform: translateY(200px) scale(0.3);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
   }
 }
 </style>

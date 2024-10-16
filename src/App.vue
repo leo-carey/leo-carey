@@ -29,7 +29,7 @@ import Services from './components/Services.vue'
 
 <style scoped>
 .secret {
-  @apply px-2 text-primary-200 selection:bg-cyan-400;
+  @apply absolute top-0 px-2 text-primary-200 selection:bg-orange-500;
 
   span {
     @apply font-semibold;
