@@ -25,10 +25,12 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section id="services" class="relative flex w-full flex-row justify-between">
+  <section id="services" class="relative flex w-full flex-col justify-between lg:flex-row">
     <div class="background-services-type">
       <span v-for="item in Array(50)" :key="item">Serviços</span>
     </div>
+
+    <h3 class="title-services">Serviços</h3>
 
     <div class="section-sticks">
       <h3>Serviços</h3>
@@ -139,30 +141,40 @@ onMounted(async () => {
 
 <style scoped>
 .section-sticks {
-  @apply sticky top-[5rem] z-[3] mb-0 mt-52 h-screen w-full;
+  @apply relative z-[3] order-last mb-28 mt-20 h-auto w-full lg:sticky lg:top-[5rem] lg:order-none lg:mb-0 lg:mt-52 lg:h-screen;
 
   h3 {
     @apply text-[12rem] font-semibold leading-tight tracking-wide text-secondary-200/80;
     @apply absolute -top-[50%] left-12 [writing-mode:vertical-lr];
+    @apply hidden lg:block;
     text-orientation: mixed;
     transform: rotate(180deg) translateY(-50%);
   }
 }
 
+.title-services {
+  @apply text-[3rem] font-semibold leading-tight tracking-wide text-secondary-200/80;
+  @apply ml-4 mt-20 block w-full lg:hidden;
+}
+
 .services-content-wrapper {
-  @apply relative z-[2] m-auto mt-32 flex w-full flex-row items-start justify-between lg:px-0 xl:px-32;
+  @apply relative z-[2] m-auto flex w-full flex-row items-start justify-between;
+  @apply px-4 lg:mt-32 lg:px-0 xl:px-32;
 }
 
 .service-list {
-  @apply mt-32 flex w-full flex-col gap-y-40 pb-80;
+  @apply mt-24 flex w-full flex-col gap-y-32 pb-20 lg:mt-32 lg:gap-y-40 lg:pb-80;
 }
 
 .item-service {
-  @apply w-full rounded-2xl bg-secondary-400/65 px-8 py-8 opacity-0 xl:w-3/4;
+  @apply w-full rounded-2xl bg-secondary-400/65 px-8 py-8 lg:opacity-0 xl:w-3/4;
   backdrop-filter: blur(10px);
-  transform: translateY(200px) scale(0.3);
-  animation: fadeContent both;
-  animation-timeline: view(70% 30%);
+
+  @screen lg {
+    transform: translateY(200px) scale(0.3);
+    animation: fadeContent both;
+    animation-timeline: view(70% 30%);
+  }
 
   .item-icon {
     @apply float-right pb-6 pl-3 text-9xl text-cyan-500;
@@ -194,7 +206,7 @@ onMounted(async () => {
 }
 
 .background-services {
-  @apply absolute left-0 top-0 z-[1] h-full w-full overflow-y-hidden;
+  @apply absolute left-0 top-0 z-[1] hidden h-full w-full overflow-y-hidden lg:block;
 
   &:after {
     @apply absolute -top-[50%] right-[10%] block h-[200%] w-1/2 bg-secondary-100 shadow-2xl content-[''];

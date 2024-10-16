@@ -157,11 +157,11 @@ const botDeath = () => {
 
 <style scoped>
 .mega-bot-component {
-  @apply absolute left-[50%] top-[7rem] mt-28 w-fit;
+  @apply relative left-[50%] top-[8rem] w-fit -translate-x-[50%] lg:absolute lg:mt-28 lg:translate-x-0;
 }
 
 .bot-controls {
-  @apply absolute -left-4 -top-16 z-[999];
+  @apply absolute -top-32 left-14 z-[999] lg:-top-32 lg:left-14;
   perspective: 1000px;
   animation: moveControls 10s infinite;
 
