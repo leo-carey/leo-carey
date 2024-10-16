@@ -9,7 +9,7 @@ html {
 html,
 body {
   @apply relative bg-primary-200 font-medium tracking-tight antialiased;
-  @apply selection:text-primary-200 selection:bg-orange-500;
+  @apply selection:bg-orange-500 selection:text-primary-200;
 }
 
 h1,
