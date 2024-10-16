@@ -14,7 +14,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container m-auto text-center lg:px-0 xl:px-32">
+  <div class="container m-auto px-4 text-center xl:px-32">
     <h3 class="mb-4 text-4xl">Algumas das marcas que já trabalharam comigo</h3>
 
     <div class="brands-carousel" :style="`--quantity: ${brands.length}`">
@@ -37,10 +37,10 @@ onMounted(async () => {
 
 <style scoped>
 .brands-carousel {
-  --width: 140px;
-  --paddingX: 28px;
-  --height: 160px;
-  --timeMove: 10s;
+  --width: 170px;
+  --paddingX: 40px;
+  --height: 190px;
+  --timeMove: 20s;
 
   @apply container m-auto overflow-hidden;
   height: var(--height);
@@ -60,7 +60,7 @@ onMounted(async () => {
     animation-delay: calc((var(--timeMove) / var(--quantity)) * (var(--position) - 1));
 
     img {
-      @apply w-full;
+      @apply h-auto w-full;
     }
   }
 }
@@ -70,7 +70,7 @@ onMounted(async () => {
     left: 100%;
   }
   to {
-    left: calc((var(--width) + var(--paddingX)) * -1);
+    left: calc((var(--width) + var(--paddingX) + (7 * var(--width))) * -1);
   }
 }
 </style>

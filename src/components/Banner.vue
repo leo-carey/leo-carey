@@ -53,7 +53,7 @@ const linkCTA = useCtaLink()
   @apply relative z-40 m-auto px-6 pb-16 pt-12 sm:pt-12 lg:px-0 lg:pb-32 xl:px-32;
   @apply container sm:h-[50%];
 
-  @screen sm {
+  @screen md {
     animation: fadeContent both;
     animation-timeline: view(30% 70%);
   }

@@ -9,9 +9,9 @@ const currentExperienceTime = useExperienceTime()
   <section id="about" class="bg-secondary-500 py-28 text-primary-100">
     <Brands />
 
-    <div class="mx-auto mt-20 flex items-start justify-center">
+    <div class="about-content">
       <div class="our-pic">
-        <img src="@/assets/me/family.jpg" alt="Leo Carey Avatar" class="max-w-[80%]" />
+        <img src="@/assets/me/family.jpg" alt="Leo Carey Avatar" />
       </div>
 
       <div class="about-me">
@@ -43,18 +43,33 @@ const currentExperienceTime = useExperienceTime()
 </template>
 
 <style scoped>
+.about-content {
+  @apply container mx-auto mt-20 flex flex-col items-start justify-center px-10 md:flex-row;
+}
+
 .our-pic {
-  @apply w-1/4 opacity-0;
-  transform: translateY(200px) scale(0.3);
-  animation: fadeContent both;
-  animation-timeline: view(70% 30%);
+  @apply w-full md:w-1/2 md:opacity-0 lg:w-1/3;
+
+  img {
+    @apply mx-auto w-[300px] lg:w-full lg:max-w-[80%];
+  }
+
+  @screen md {
+    transform: translateY(200px) scale(0.3);
+    animation: fadeContent both;
+    animation-timeline: view(70% 30%);
+  }
 }
 
 .about-me {
-  @apply w-1/4 opacity-0;
-  transform: translateY(200px) scale(0.3);
-  animation: fadeContent both;
-  animation-timeline: view(70% 30%);
+  @apply mt-20 text-center md:mt-0 md:text-left md:opacity-0;
+  @apply w-full md:w-1/2 lg:w-1/3;
+
+  @screen md {
+    transform: translateY(200px) scale(0.3);
+    animation: fadeContent both;
+    animation-timeline: view(70% 30%);
+  }
 
   p {
     @apply mb-4 block text-lg font-normal leading-normal;
